@@ -1,21 +1,24 @@
-# Python program to check if year is a leap year or not
+"""
+Write a function called linear_search_product that takes the list of products and a target product
+name as input. The function should perform a linear search to find the target product in the list and
+return a list of indices of all occurrences of the product if found, or an empty list if the product is not
+found.
+"""
 
-year = 2004
 
-# To get year (integer input) from the user
-# year = int(input("Enter a year: "))
+def linearSearchProduct(productList, targetProduct):
+  indices = []
 
-# divided by 100 means century year (ending with 00)
-# century year divided by 400 is leap year
-if (year % 400 == 0) and (year % 100 == 0):
-    print("{0} is a leap year".format(year))
+  for index, product in enumerate(productList):
+    if product == targetProduct:
+      indices.append(index)
 
-# not divided by 100 means not a century year
-# year divided by 4 is a leap year
-elif (year % 4 ==0) and (year % 100 != 0):
-    print("{0} is a leap year".format(year))
+  return indices
 
-# if not divided by both 400 (century year) and 4 (not century year)
-# year is not leap year
-else:
-    print("{0} is not a leap year".format(year))
+
+# Example usage:
+products = ["shoes", "boot", "loafer", "shoes", "sandal", "shoes"]
+target = "shoes"
+target2 = 'apple'
+result = linearSearchProduct(products, target)
+print(result)
